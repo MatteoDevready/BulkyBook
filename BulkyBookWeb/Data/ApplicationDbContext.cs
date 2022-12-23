@@ -7,7 +7,7 @@ namespace BulkyBookWeb.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            /*parapeters in the constructor are needed
+            /*parameters in the constructor are needed
              since we are declaring that is going to receive some options.
             And those options will be passed to the base class which is DbContext
 
