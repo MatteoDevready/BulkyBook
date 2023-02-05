@@ -50,7 +50,7 @@ namespace BulkyBookWeb.Controllers
         }
 
         // POST: CategoriesTemp/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // To protect from over posting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -82,7 +82,7 @@ namespace BulkyBookWeb.Controllers
         }
 
         // POST: CategoriesTemp/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // To protect from over-posing attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -148,7 +148,6 @@ namespace BulkyBookWeb.Controllers
             {
                 _context.Categories.Remove(category);
             }
-            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

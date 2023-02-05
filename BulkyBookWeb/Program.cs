@@ -14,7 +14,7 @@ namespace BulkyBookWeb
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
                 builder.Configuration.GetConnectionString("DefaultConnection")
                 ));
-            builder.Services.AddRazorPages();   
+            builder.Services.AddRazorPages();
 
             var app = builder.Build();
 
@@ -23,10 +23,10 @@ namespace BulkyBookWeb
             should respond to a request that is received.
             When the application receives a request from the browser,
             that request goes through the pipeline.
-            The pipline allow to add items that I want.
-            Pipeline is made up of different middlewares and MVC is a type
-            of middleware itself. Also authentication, authorization, static 
-            files and so on are middleware in the pipeline.
+            The pipeline allow to add items that I want.
+            Pipeline is made up of different middle-wares and MVC is a type
+            of middle-ware itself. Also authentication, authorization, static
+            files and so on are middle-ware in the pipeline.
             */
             if (!app.Environment.IsDevelopment())
             {
@@ -34,7 +34,7 @@ namespace BulkyBookWeb
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            //below are the middleware
+            //below are the middle-ware
             app.UseHttpsRedirection();
             //UseStaticFiles are files defined in wwwRoot
             app.UseStaticFiles();

@@ -18,23 +18,23 @@ namespace BulkyBookWeb.Controllers
 
         public IActionResult Index()
         {
-            //IEnumeramble supports iteration accross collections so the ToList method at the end is not necessary
+            //IEnumeramble supports iteration across collections so the ToList method at the end is not necessary
             //IEnumerable<Category> objCategoryList = _db.Categories.ToList();
             IEnumerable<Category> objCategoryList = _db.Categories;
             return View(objCategoryList);
         }
 
         //GET
-        public IActionResult Create() 
+        public IActionResult Create()
         {
             return View();
         }
 
         //POST
         [HttpPost]
-        //Its is prevent to avoid Forgery attacks, it will generate a key thatw ill be validated at this step
+        //Its is prevent to avoid Forgery attacks, it will generate a key that ill be validated at this step
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category obj) 
+        public IActionResult Create(Category obj)
         {
             //checking that the two filed are not represented with the same value
             if (obj.Name == obj.DisplayOrder.ToString())
@@ -57,11 +57,11 @@ namespace BulkyBookWeb.Controllers
         }
 
 
-        //Nullable types are instances of the System.Nullable struct. 
+        //Nullable types are instances of the System.Nullable structure.
         //A nullable type can represent the correct range of values for its underlying value type, plus an additional null value.
-        //For example, a Nullable<Int32>, pronounced "Nullable of Int32," can be assigned any value from -2147483648 to 2147483647, 
-        //or it can be assigned the null value.A Nullable<bool> can be assigned the values true, false, or null. 
-        //The ability to assign null to numeric and Boolean types is especially useful when you are dealing with databases 
+        //For example, a Nullable<Int32>, pronounced "Nullable of Int32," can be assigned any value from -2147483648 to 2147483647,
+        //or it can be assigned the null value.A Nullable<bool> can be assigned the values true, false, or null.
+        //The ability to assign null to numeric and Boolean types is especially useful when you are dealing with databases
         //and other data types that contain elements that may not be assigned a value.
         //For example, a Boolean field in a database can store the values true or false, or it may be undefined.
 
@@ -79,7 +79,7 @@ namespace BulkyBookWeb.Controllers
             //var categoryFromDbSingle = _db.Categories.SingleOrDefault(u => u.Id == id);
 
 
-            if (categoryFromDb == null) 
+            if (categoryFromDb == null)
             {
                 return NotFound();
             }
@@ -110,9 +110,7 @@ namespace BulkyBookWeb.Controllers
             {
                 return View(obj);
             }
-            
         }
-        
         //GET
         public IActionResult Delete(int? id)
         {
@@ -124,7 +122,7 @@ namespace BulkyBookWeb.Controllers
             var categoryFromDb = _db.Categories.Find(id);
 
 
-            if (categoryFromDb == null) 
+            if (categoryFromDb == null)
             {
                 return NotFound();
             }
@@ -143,7 +141,6 @@ namespace BulkyBookWeb.Controllers
                 _db.SaveChanges();
                 TempData["success"] = "Category deleted successfully";
                 return RedirectToAction("Index");
-            
         }
     }
 }
